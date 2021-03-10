@@ -33,7 +33,7 @@ body {
     border: 3px solid red;
  }
 .navtop {
-    background-color: #3f69a8;
+    background-color: #008B8B;
     height: 60px;
     width: 100%;
     border: 0;
@@ -214,3 +214,22 @@ body {
 .delete .yesno a:hover {
     background-color: #32a367;
 }
+.cabecalho {
+    padding: 0.8125rem 0.8125rem;
+  }
+
+  .cabecalho .logo {
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  .cabecalho .tituloCabecalho {
+    font-size: 3em;
+    margin-top: 0em;
+    margin-bottom: 0;
+  }
+
+  .cabecalho .subTitulo {
+    font-size: 1.25rem;
+  }

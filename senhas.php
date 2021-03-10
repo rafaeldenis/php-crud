@@ -69,10 +69,10 @@ $num_senhas = $pdo->query('SELECT COUNT(*) FROM minhas_senhas')->fetchColumn();
     </table>
 	<div class="pagination">
 		<?php if ($page > 1): ?>
-		<a href="senhas.php?page=<?=$page-1?>"><i class="fas fa-angle-double-left fa-sm"></i></a>
+		<a href="senhas.php?verificado=rafadenis&page=<?=$page-1?>"><i class="fas fa-angle-double-left fa-sm"></i></a>
 		<?php endif; ?>
 		<?php if ($page*$records_per_page < $num_senhas): ?>
-		<a href="senhas.php?page=<?=$page+1?>"><i class="fas fa-angle-double-right fa-sm"></i></a>
+		<a href="senhas.php?verificado=rafadenis&page=<?=$page+1?>"><i class="fas fa-angle-double-right fa-sm"></i></a>
 		<?php endif; ?>
 	</div>
 </div>

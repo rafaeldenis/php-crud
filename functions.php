@@ -26,6 +26,7 @@ echo <<<EOT
 	<head>
 		<meta charset="utf-8">
 		<title>$title</title>
+		
 		<link href="../../style.css" rel="stylesheet" type="text/css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
@@ -34,7 +35,18 @@ echo <<<EOT
 		
 	</head>
 	<body>
-    <nav class="navtop">
+	<header class="cabecalho">
+		<center>
+		<table width="100%" cellpadding="0" cellspacing="0" bgcolor="#003300">
+			<tr>
+				<td align="left" width="100%">
+					<a href="http://www.unifesp.br" target="_top" title="Universidade Federal de São Paulo"><img src="/img/titulo_unifesp.gif" border="0"></a></td>
+																		
+														
+			</tr>
+		</table>
+		</center>
+		<nav class="navtop">
     	<div>
     		<h1>Sistema de Gereciamento de Clientes   </h1>
             <a href="$URL_BASE/index.php"><i class="fas fa-home"></i>Página Principal</a>
@@ -43,6 +55,9 @@ echo <<<EOT
     		<a id="myAnchor" href="#" onclick=adicionarItem();><i class="fas fa-address-book"></i>senhas</a>
     	</div>
     </nav>
+		
+	</header>
+    
 EOT;
 }
 function template_footer() {
@@ -63,7 +78,7 @@ function adicionarItem(){
 	  
 		if(item == null || item == "") {
             alert("O uso do prompt foi cancelado!");
-			$('#myAnchor').attr('href', 'index.php')
+			$('#myAnchor').attr('href', 'http://localhost:81/index.php')
 			//$(location).attr('href', 'funcionarios.php');
 			
         }else {           
@@ -82,5 +97,7 @@ function adicionarItem(){
 			
         }
     }
+
+	<?php echo rand(1, 1000);?>
 
 </script>
