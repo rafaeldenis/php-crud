@@ -1,7 +1,7 @@
 <?php
 
 
-include 'functions.php';
+include '../../functions.php';
 
 // Connect to MySQL database
 $pdo = pdo_connect_mysql();
@@ -11,25 +11,25 @@ $page = isset($_GET['page']) && is_numeric($_GET['page']) ? (int)$_GET['page'] :
 $records_per_page = 3;
 
 // Prepare the SQL statement and get records from our contacts table, LIMIT will determine the page
-$stmt = $pdo->prepare('SELECT * FROM clientes ORDER BY nome LIMIT :current_page, :record_per_page');
+$stmt = $pdo->prepare('SELECT * FROM funcionarios ORDER BY nome LIMIT :current_page, :record_per_page');
 $stmt->bindValue(':current_page', ($page-1)*$records_per_page, PDO::PARAM_INT);
 $stmt->bindValue(':record_per_page', $records_per_page, PDO::PARAM_INT);
 $stmt->execute();
 // Fetch the records so we can display them in our template.
-$clientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$funcionarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 // Get the total number of contacts, this is so we can determine whether there should be a next and previous button
-$num_clientes = $pdo->query('SELECT COUNT(*) FROM clientes')->fetchColumn();
+$num_funcionarios= $pdo->query('SELECT COUNT(*) FROM funcionarios')->fetchColumn();
 ?>
 
-<?=template_header('Read')?>
+<?=template_header('Funcionarios')?>
 
 <div class="content read">
-	<h2>Clientes</h2>
-	<a href="create.php" class="create-contact">Criação de Cliente</a>
+	<h2>Funcionários</h2>
+	<a href="create_funcs.php" class="create-contact">Criação de Funcionários</a>
     <?php
     // VERIFICAR MENSAGEM DE ERRO E SUCESSO DE INTERAÇÕS COM O BANCO
-    include '_alert_messagem.php';
+    include '../../_alert_messagem.php';
    
     ?>
 	<table>
@@ -37,21 +37,25 @@ $num_clientes = $pdo->query('SELECT COUNT(*) FROM clientes')->fetchColumn();
             <tr>
                 <td>#</td>
                 <td>Nome</td>
-                <td>apelido</td>
+                <td>cpf/cnpj</td>
+                <td>salário</td>
+                <td>email</td>
                 
                 <td>Ações</td>
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($clientes as $cliente): ?>
+            <?php foreach ($funcionarios as $funcionario): ?>
             <tr>
-                <td><?=$cliente['id']?></td>
-                <td><?=$cliente['nome']?></td>
-                <td><?=$cliente['apelido']?></td>
+                <td><?=$funcionario['id']?></td>
+                <td><?=$funcionario['nome']?></td>
+                <td><?=$funcionario['cpf_cnpj']?></td>
+                <td><?=$funcionario['salario']?></td>
+                <td><?=$funcionario['email']?></td>
               
                 <td class="actions">
-                    <a href="update.php?id=<?=$cliente['id']?>" class="edit"><i class="fas fa-pen fa-xs"></i></a>
-                    <a href="delete.php?id=<?=$cliente['id']?>" class="trash"><i class="fas fa-trash fa-xs"></i></a>
+                    <a href="update.php?id=<?=$funcionario['id']?>" class="edit"><i class="fas fa-pen fa-xs"></i></a>
+                    <a href="delete.php?id=<?=$funcionario['id']?>" class="trash"><i class="fas fa-trash fa-xs"></i></a>
                 </td>
             </tr>
             <?php endforeach; ?>
@@ -59,10 +63,10 @@ $num_clientes = $pdo->query('SELECT COUNT(*) FROM clientes')->fetchColumn();
     </table>
 	<div class="pagination">
 		<?php if ($page > 1): ?>
-		<a href="read.php?page=<?=$page-1?>"><i class="fas fa-angle-double-left fa-sm"></i></a>
+		<a href="funcionarios.php?page=<?=$page-1?>"><i class="fas fa-angle-double-left fa-sm"></i></a>
 		<?php endif; ?>
-		<?php if ($page*$records_per_page < $num_clientes): ?>
-		<a href="read.php?page=<?=$page+1?>"><i class="fas fa-angle-double-right fa-sm"></i></a>
+		<?php if ($page*$records_per_page < $num_funcionarios): ?>
+		<a href="funcionarios.php?page=<?=$page+1?>"><i class="fas fa-angle-double-right fa-sm"></i></a>
 		<?php endif; ?>
 	</div>
 </div>

@@ -1,5 +1,5 @@
 <?php
-include 'functions.php';
+include '../../functions.php';
 $pdo = pdo_connect_mysql();
 $msg = '';
 // Check that the contact ID exists
