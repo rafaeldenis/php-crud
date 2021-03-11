@@ -58,9 +58,10 @@ echo <<<EOT
     	<div>
     		<h1>Sistema de Gereciamento de Clientes </h1>		
             <a href="$URL_BASE/index.php"><i class="fas fa-home"></i>Página Principal</a>
-    		<a href="$URL_BASE/view/clientes/read.php"><i class="fas fa-address-book"></i>Clientes</a>
-    		<a href="$URL_BASE/view/funcionarios/funcionarios.php"><i class="fas fa-address-book"></i>Funcionários</a>
-    		<a id="myAnchor" href="#" onclick=adicionarItem();><i class="fas fa-address-book"></i>senhas</a>
+            <a href="#"><i class="fas fa-smile"></i> $usuarioLogado </a>
+            <a href="#"><i class="fas fa-power-off"></i> Sair </a>
+
+    	
     		
     		
     	</div>
@@ -75,7 +76,7 @@ echo <<<EOT
             <a class="nav-link" id="contact-tab" data-toggle="tab" href="$URL_BASE/view/clientes/read.php" role="tab" aria-controls="contact" aria-selected="false"><i class="fas fa-address-book"></i> Funcionários</a>
         </li>
 		<li class="nav-item">
-			<a class="nav-link" id="myAnchor" href="#" onclick=adicionarItem(); data-toggle="tab"  role="tab" aria-controls="contact" aria-selected="false"><i class="fas fa-address-book"></i> Senhas</a>
+			<a class="nav-link" id="myAnchor" href="#" onclick=adicionarItem(); data-toggle="tab"  role="tab" aria-controls="contact" aria-selected="false"><i class="fas fa-key"></i> Senhas</a>
 		</li>
     </ul>
    
