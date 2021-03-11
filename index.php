@@ -1,9 +1,12 @@
 <?php
 
 include 'functions.php';
-// Your PHP code here.
+include 'verificaLogin.php';
+/*if($_SESSION['permissao']!="S"){
 
-// Home Page template below.
+    header('Location: login.php');
+    exit();
+  }*/
 ?>
 
 <?=template_header('Home')?>

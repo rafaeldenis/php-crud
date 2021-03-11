@@ -2,6 +2,7 @@
 
 
 include '../../functions.php';
+include '../../verificaLogin.php';
 
 // Connect to MySQL database
 $pdo = pdo_connect_mysql();

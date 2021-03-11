@@ -18,15 +18,13 @@ function template_header($title) {
 	
 
 	$URL_BASE = "http://$_SERVER[HTTP_HOST]";
+     if($URL_BASE=="http://localhost"){
+		$diretorioProjeto = "/php-crud";
+		$URL_BASE = $URL_BASE.$diretorioProjeto;
+	 }
 
-	$URL_BASE = "http://$_SERVER[HTTP_HOST]";
-	if($URL_BASE=="http://localhost"){
-	// TRATAMENTO QUANDO O PROJETO ESTÁ NA HTDOCS DO APCHE24 
-	// A ESTRUTURA DE DIRETÓRIO MUDA , POIS QUANDO ESTÁ EM OUTRO LOCAL NO PC 
-	// QUE É ABERTO ATRA´VES DA PORTA 80,81 , 8080 a estrutura de referencia arquivos css muda	
-	   $diretorioProjeto = "/php-crud";
-	   $URL_BASE = $URL_BASE.$diretorioProjeto;
-	}
+	 $permissao = $_SESSION['permissao'];
+	 $usuarioLogado = $_SESSION['usuarioLogado'];
 	
 echo <<<EOT
 <!DOCTYPE html>
@@ -48,21 +46,43 @@ echo <<<EOT
 		<table width="100%" cellpadding="0" cellspacing="0" bgcolor="#003300">
 			<tr>
 				<td align="left" width="100%">
-					<a href="http://www.unifesp.br" target="_top" title="Universidade Federal de São Paulo"><img src="$URL_BASE/img/titulo_unifesp.gif" border="0"></a></td>
+					<a href="http://www.unifesp.br" target="_top" title="Universidade Federal de São Paulo"><img src="$URL_BASE/img/titulo_unifesp.gif" border="0"></a>
+				</td>
 																		
 														
 			</tr>
 		</table>
 		</center>
 		<nav class="navtop">
+	
     	<div>
-    		<h1>Sistema de Gereciamento de Clientes $URL_BASE   </h1>
+    		<h1>Sistema de Gereciamento de Clientes $URL_BASE </h1>		
             <a href="$URL_BASE/index.php"><i class="fas fa-home"></i>Página Principal</a>
-    		<a href="$URL_BASE/view/clientes/read.php"><i class="fas fa-address-book"></i>Clientes</a>
-    		<a href="$URL_BASE/view/funcionarios/funcionarios.php"><i class="fas fa-address-book"></i>Funcionários</a>
-    		<a id="myAnchor" href="#" onclick=adicionarItem();><i class="fas fa-address-book"></i>senhas</a>
+            <a href="#"><i class="fas fa-smile"></i> $usuarioLogado </a>
+            <a href="#"><i class="fas fa-power-off"></i> Sair </a>
+
+    	
+    		
+    		
     	</div>
     </nav>
+	<div class="container">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+     
+        <li class="nav-item">
+            <a class="nav-link" id="profile-tab"  href="$URL_BASE/view/clientes/read.php"  aria-selected="false"><i class="fas fa-address-book"></i> Clientes</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="contact-tab" data-toggle="tab" href="$URL_BASE/view/clientes/read.php" role="tab" aria-controls="contact" aria-selected="false"><i class="fas fa-address-book"></i> Funcionários</a>
+        </li>
+		<li class="nav-item">
+			<a class="nav-link" id="myAnchor" href="#" onclick=adicionarItem(); data-toggle="tab"  role="tab" aria-controls="contact" aria-selected="false"><i class="fas fa-key"></i> Senhas</a>
+		</li>
+    </ul>
+   
+</div>
+
+
 		
 	</header>
     
@@ -70,6 +90,7 @@ EOT;
 }
 function template_footer() {
 echo <<<EOT
+
     </body>
 </html>
 EOT;
