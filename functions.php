@@ -18,7 +18,10 @@ function template_header($title) {
 	
 
 	$URL_BASE = "http://$_SERVER[HTTP_HOST]";
-
+     if($URL_BASE=="http://localhost"){
+		$diretorioProjeto = "/php-crud";
+		$URL_BASE = $URL_BASE.$diretorioProjeto;
+	 }
 	
 echo <<<EOT
 <!DOCTYPE html>
@@ -48,7 +51,7 @@ echo <<<EOT
 		</center>
 		<nav class="navtop">
     	<div>
-    		<h1>Sistema de Gereciamento de Clientes   </h1>
+    		<h1>Sistema de Gereciamento de Clientes $URL_BASE   </h1>
             <a href="$URL_BASE/index.php"><i class="fas fa-home"></i>Página Principal</a>
     		<a href="$URL_BASE/view/clientes/read.php"><i class="fas fa-address-book"></i>Clientes</a>
     		<a href="$URL_BASE/view/funcionarios/funcionarios.php"><i class="fas fa-address-book"></i>Funcionários</a>
