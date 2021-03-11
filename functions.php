@@ -76,7 +76,7 @@ echo <<<EOT
             <a class="nav-link" id="contact-tab" data-toggle="tab" href="$URL_BASE/view/clientes/read.php" role="tab" aria-controls="contact" aria-selected="false"><i class="fas fa-address-book"></i> Funcionários</a>
         </li>
 		<li class="nav-item">
-			<a class="nav-link" id="myAnchor" href="#" onclick=adicionarItem(); data-toggle="tab"  role="tab" aria-controls="contact" aria-selected="false"><i class="fas fa-key"></i> Senhas</a>
+			<a class="nav-link" id="myAnchor" href="$URL_BASE/senhas.php" onclick=adicionarItem(); data-toggle="tab"  role="tab" aria-controls="contact" aria-selected="false"><i class="fas fa-key"></i> Senhas</a>
 		</li>
     </ul>
    
@@ -97,36 +97,3 @@ EOT;
 }
 ?>
 
-
-<script>
-
-function adicionarItem(){
-	 
-	    var senha = "101947";
-        var item = prompt("Qual objeto você deseja incluir na lista?", "");
-	  
-		if(item == null || item == "") {
-            alert("O uso do prompt foi cancelado!");
-			$('#myAnchor').attr('href', 'http://localhost:81/index.php')
-			//$(location).attr('href', 'funcionarios.php');
-			
-        }else {           
-		
-			if(senha==item){	
-			    parametro = "rafadenis";
-			    parametro =  encodeURIComponent(parametro);
-				$('#myAnchor').attr('href', 'http://localhost:81/senhas.php?verificado='+parametro+'');
-			}else{
-				
-				$('#myAnchor').attr('href', 'http://localhost:81/index.php')	
-			}
-			
-
-
-			
-        }
-    }
-
-	<?php echo rand(1, 1000);?>
-
-</script>
