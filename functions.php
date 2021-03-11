@@ -65,24 +65,21 @@ echo <<<EOT
     		
     	</div>
     </nav>
-	<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #0C1E25;">
-            <div class="d-flex justify-content-start align-items-center nome-nav">
-                <figure>
-                    <img src="imagem-eout-removebg-preview.png" href="#" class="navbar-brand imagem-nav">
-                </figure>
-                <h1><a class="navbar-brand" href="#">E-Out</a></h1>
-            </div>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNavAltMarkup">
-              <div class="navbar-nav">
-                <a class="nav-item nav-link" href="#">Home</a>
-                <a class="nav-item nav-link" href="#">Eventos</a>
-                <a class="nav-item nav-link" href="#">Quem somos</a>
-              </div>
-            </div>
-        </nav>  
+	<div class="container">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+     
+        <li class="nav-item">
+            <a class="nav-link" id="profile-tab"  href="$URL_BASE/view/clientes/read.php"  aria-selected="false"><i class="fas fa-address-book"></i> Clientes</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="contact-tab" data-toggle="tab" href="$URL_BASE/view/clientes/read.php" role="tab" aria-controls="contact" aria-selected="false"><i class="fas fa-address-book"></i> Funcionários</a>
+        </li>
+		<li class="nav-item">
+			<a class="nav-link" id="myAnchor" href="#" onclick=adicionarItem(); data-toggle="tab"  role="tab" aria-controls="contact" aria-selected="false"><i class="fas fa-address-book"></i> Senhas</a>
+		</li>
+    </ul>
+   
+</div>
 
 
 		
