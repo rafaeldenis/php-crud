@@ -1,6 +1,7 @@
 <?php
 
 include '../../functions.php';
+include '../../verificaLogin.php';
 $pdo = pdo_connect_mysql();
 $msg = '';
 // Check if POST data is not empty

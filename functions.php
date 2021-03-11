@@ -22,6 +22,9 @@ function template_header($title) {
 		$diretorioProjeto = "/php-crud";
 		$URL_BASE = $URL_BASE.$diretorioProjeto;
 	 }
+
+	 $permissao = $_SESSION['permissao'];
+	 $usuarioLogado = $_SESSION['usuarioLogado'];
 	
 echo <<<EOT
 <!DOCTYPE html>
@@ -43,21 +46,45 @@ echo <<<EOT
 		<table width="100%" cellpadding="0" cellspacing="0" bgcolor="#003300">
 			<tr>
 				<td align="left" width="100%">
-					<a href="http://www.unifesp.br" target="_top" title="Universidade Federal de São Paulo"><img src="/img/titulo_unifesp.gif" border="0"></a></td>
+					<a href="http://www.unifesp.br" target="_top" title="Universidade Federal de São Paulo"><img src="/img/titulo_unifesp.gif" border="0"></a>
+				</td>
 																		
 														
 			</tr>
 		</table>
 		</center>
 		<nav class="navtop">
+	
     	<div>
-    		<h1>Sistema de Gereciamento de Clientes $URL_BASE   </h1>
+    		<h1>Sistema de Gereciamento de Clientes </h1>		
             <a href="$URL_BASE/index.php"><i class="fas fa-home"></i>Página Principal</a>
     		<a href="$URL_BASE/view/clientes/read.php"><i class="fas fa-address-book"></i>Clientes</a>
     		<a href="$URL_BASE/view/funcionarios/funcionarios.php"><i class="fas fa-address-book"></i>Funcionários</a>
     		<a id="myAnchor" href="#" onclick=adicionarItem();><i class="fas fa-address-book"></i>senhas</a>
+    		
+    		
     	</div>
     </nav>
+	<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #0C1E25;">
+            <div class="d-flex justify-content-start align-items-center nome-nav">
+                <figure>
+                    <img src="imagem-eout-removebg-preview.png" href="#" class="navbar-brand imagem-nav">
+                </figure>
+                <h1><a class="navbar-brand" href="#">E-Out</a></h1>
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                <a class="nav-item nav-link" href="#">Home</a>
+                <a class="nav-item nav-link" href="#">Eventos</a>
+                <a class="nav-item nav-link" href="#">Quem somos</a>
+              </div>
+            </div>
+        </nav>  
+
+
 		
 	</header>
     
@@ -65,6 +92,7 @@ EOT;
 }
 function template_footer() {
 echo <<<EOT
+
     </body>
 </html>
 EOT;

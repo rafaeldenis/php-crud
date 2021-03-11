@@ -2,6 +2,7 @@
 
 
 include 'functions.php';
+include 'verificaLogin.php';
 
 $verificado = isset($_GET['verificado']);
 
