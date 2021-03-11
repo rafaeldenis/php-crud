@@ -33,7 +33,7 @@ $usuario = $query->fetch(PDO::FETCH_ASSOC);
         $msg = "Por favor verifica Usuário e senha informados!";
         $_SESSION['permissao'] = "NAO";
         $_SESSION['msgErro'] = $msg;
-        header('Location: login.php');
+        header('Location: '.$URL_BASE.'/login.php');
         //exit('Por favor verifica Usuário e senha informados!');
     }else{
         

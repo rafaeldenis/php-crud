@@ -4,15 +4,7 @@
 include 'functions.php';
 include 'verificaLogin.php';
 
-$verificado = isset($_GET['verificado']);
 
-
-
-if($verificado!=1){
-    header('Location: index.php');
-    exit();
-    
-}
 
 // Connect to MySQL database
 $pdo = pdo_connect_mysql();
