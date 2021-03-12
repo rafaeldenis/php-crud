@@ -3,10 +3,6 @@
 
 include 'functions.php';
 
-
-
-
-
 ?>
 
 <?=template_header('Read')?>

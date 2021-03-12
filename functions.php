@@ -25,14 +25,23 @@ function template_header($title) {
 		$URL_BASE = $URL_BASE.$diretorioProjeto;
 	 }
 
+     if(isset($_SESSION['permissao'])){
+		$permissao = isset($_SESSION['permissao'])? addslashes(trim($_SESSION['permissao'])) : FALSE;
 
+	 }	
 
-	 $permissao = $_SESSION['permissao'];
-	 $usuarioLogado = $_SESSION['usuarioLogado'];
+	 if(isset($_SESSION['usuarioLogado'])){
+		$usuarioLogado = $_SESSION['usuarioLogado'];
+	 }	
+
+	 $usuarioLogado = isset($_SESSION['usuarioLogado'])? addslashes(trim($_SESSION['usuarioLogado'])) : FALSE;
+
+	 
 
 	 //ini_set('session.use_trans_sid', 0);
 
      if (!isset($_SESSION['permissao'])){
+	   $_SESSION['permissao'] = "NAO";	 
        $_SESSION['name']="Guest";
 
      }
