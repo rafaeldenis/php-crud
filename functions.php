@@ -103,7 +103,7 @@ echo <<<EOT
             <a class="nav-link" id="profile-tab"  href="$URL_BASE/view/clientes/read.php"  aria-selected="false"><i class="fas fa-address-book"></i> Clientes</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" id="contact-tab" data-toggle="tab" href="$URL_BASE/view/clientes/read.php" role="tab" aria-controls="contact" aria-selected="false"><i class="fas fa-address-book"></i> Funcionários</a>
+            <a class="nav-link" id="contact-tab" data-toggle="tab" href="$URL_BASE/view/funcionarios/funcionarios.php" role="tab" aria-controls="contact" aria-selected="false"><i class="fas fa-address-book"></i> Funcionários</a>
         </li>
 		<li class="nav-item">
 			<a class="nav-link" id="myAnchor" href="$URL_BASE/senhas.php" onclick=adicionarItem(); data-toggle="tab"  role="tab" aria-controls="contact" aria-selected="false"><i class="fas fa-key"></i> Senhas</a>
