@@ -2,6 +2,8 @@
 
 
 session_start();
+
+
 function pdo_connect_mysql() {
     $DATABASE_HOST = 'localhost';
     $DATABASE_USER = 'root';
@@ -23,8 +25,36 @@ function template_header($title) {
 		$URL_BASE = $URL_BASE.$diretorioProjeto;
 	 }
 
+
+
 	 $permissao = $_SESSION['permissao'];
 	 $usuarioLogado = $_SESSION['usuarioLogado'];
+
+	 //ini_set('session.use_trans_sid', 0);
+
+     if (!isset($_SESSION['permissao'])){
+       $_SESSION['name']="Guest";
+
+     }
+
+     if ($_SESSION['permissao']!="Guest"){
+        $counter = time();
+
+        if (!isset($_SESSION['count'])){
+          $_SESSION['count']= $counter;
+        }
+
+        if ($counter - $_SESSION['count'] >= 250 ){
+			
+			$_SESSION['permissao'] = "NAO";
+			$msg = "Seu Usuário expirou por inatividade maior que 30 minutos, Entre Novamente!";
+			$_SESSION['msgErro'] = $msg;
+			header('Location: '.$URL_BASE.'/login.php');
+
+       }
+        $_SESSION['count']= $counter;
+
+     } 
 	
 echo <<<EOT
 <!DOCTYPE html>
@@ -59,7 +89,7 @@ echo <<<EOT
     		<h1>Sistema de Gereciamento de Clientes $URL_BASE </h1>		
             <a href="$URL_BASE/index.php"><i class="fas fa-home"></i>Página Principal</a>
             <a href="#"><i class="fas fa-smile"></i> $usuarioLogado </a>
-            <a href="#"><i class="fas fa-power-off"></i> Sair </a>
+            <a href="$URL_BASE/deslogar.php"><i class="fas fa-power-off"></i> Sair </a>
 
     	
     		
