@@ -4,7 +4,7 @@
 include 'functions.php';
 $pdo = pdo_connect_mysql();
 $msg = '';
-print_r($_POST);
+//print_r($_POST);
 //exit();
 if (isset($_POST['email'])) {
 
@@ -42,6 +42,7 @@ $usuario = $query->fetch(PDO::FETCH_ASSOC);
             
                 $_SESSION['permissao'] = "SIM";
                 $_SESSION['usuarioLogado'] = $usuarioLogado;
+                unset($_SESSION['msgErroExpirou']);
 
                 header('Location: index.php');
     }

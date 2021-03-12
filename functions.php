@@ -44,12 +44,12 @@ function template_header($title) {
           $_SESSION['count']= $counter;
         }
 
-        if ($counter - $_SESSION['count'] >= 250 ){
+        if ($counter - $_SESSION['count'] >= 1800 ){
 			
 			$_SESSION['permissao'] = "NAO";
 			$msg = "Seu Usuário expirou por inatividade maior que 30 minutos, Entre Novamente!";
-			$_SESSION['msgErro'] = $msg;
-			header('Location: '.$URL_BASE.'/login.php');
+			$_SESSION['msgErroExpirou'] = $msg;
+			header('Location: '.$URL_BASE.'/login.php'); 
 
        }
         $_SESSION['count']= $counter;

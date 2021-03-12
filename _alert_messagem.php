@@ -19,5 +19,14 @@ if(isset($_SESSION['msgErro'])){
     unset($_SESSION['msgErro']);
  }
 
+ if(isset($_SESSION['msgErroExpirou'])){
+     echo' 
+     <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          '.$_SESSION['msgErroExpirou'].'
+        
+     </div>';
+     
+  }
+
 
 ?>
