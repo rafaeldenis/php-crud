@@ -30,6 +30,12 @@ $usuario = $query->fetch(PDO::FETCH_ASSOC);
     if (!$usuario) {
         //echo "nao encontrou usuário";
         session_start();
+        $URL_BASE = "http://$_SERVER[HTTP_HOST]";
+        if($URL_BASE=="http://localhost"){
+            $diretorioProjeto = "/php-crud";
+            $URL_BASE = $URL_BASE.$diretorioProjeto;
+        }
+
         $msg = "Por favor verifica Usuário e senha informados!";
         $_SESSION['permissao'] = "NAO";
         $_SESSION['msgErro'] = $msg;
@@ -46,39 +52,7 @@ $usuario = $query->fetch(PDO::FETCH_ASSOC);
 
                 header('Location: index.php');
     }
-
-    exit();
-    // Make sure the user confirms beore deletion
-    if (isset($_POST['SENHA'])) {
-        
-        $stmt = $pdo->prepare('SELECT * FROM usuarios WHERE senha = ?');
-        $stmt->execute([$_POST['senha']]);
-        $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
-        if (!$usuario) {
-            //exit('Por favor verifica Usuário e senha informados!');
-            header('Location: read.php');
-        }else{
-            header('Location: read.php');
-        }
-           /* if($deletou):
-                $msg = 'O CLIENTE '.$cliente['nome'].' '.$cliente['id'].' foi deletado com Sucesso!';
-                session_start();
-            
-                $_SESSION['msgSucesso'] = $msg;
-            else:
-                $msg = 'O CLieNTE '.$cliente['nome'].' '.$cliente['id'].'não foi deletado , pois ocorrreu um erro inesperado';
-                session_start();
-            
-                $_SESSION['msgErro'] = $msg;    
-            endif;    
-             header('Location: read.php');*/
-
-
-     
-    }else {
-        exit('Por favor verifica Usuário e senha informados kkkkkkk!');
-    }
-} else {
-    exit('Por favor verifica Usuário e senha informados kkk!');
 }
+
+    
 ?>
