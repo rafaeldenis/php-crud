@@ -10,7 +10,7 @@ include 'verificaLogin.php';
 ?>
 
 <?=template_header('Home')?>
-
+<?php include '_alert_messagem.php'; ?>
 <div class="content">
 	<h2>Página Inicial</h2>
 	<p>Seja bem vindo a página de controle de clientes </p>
