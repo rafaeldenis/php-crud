@@ -39,8 +39,7 @@ $texto = "
 <b>Mensagem:</b> ERRO AO GERAR HISTORICO DO ALUNO
 ";
 // Usuário da conta
-$mail->Username = 'rafagdf85@gmail.com';
- 
+$mail->Username = 'rafagdf85@gmail.com'; 
 // Senha da conta
 $mail->Password = '101947davi';
  
