@@ -24,19 +24,19 @@ $mail->SMTPAuth = true;
  
 
 
-/*$empresa = $_POST["empresa"];
+$empresa = $_POST["empresa"];
 $nome = $_POST["nome"];
 $telefone = $_POST["telefone"];
 $email = $_POST["email"];
-$mensagem = $_POST["mensagem"];*/
+$mensagem = $_POST["mensagem"];
 
 $texto = "
 <h3>Formulário</h3><br>
-<b>Empresa:</b> UNIFESP<br>
-<b>Nome do Cliente:</b> RAFAEL DENIS<br> 
-<b>Telefone:</b> 11 973927355<br>
-<b>E-mail:</b> RAFAEL.DENIS@FAGFHAA
-<b>Mensagem:</b> ERRO AO GERAR HISTORICO DO ALUNO
+<b>Empresa:</b> $empresa<br>
+<b>Nome do Cliente:</b> $nome<br> 
+<b>Telefone:</b> $telefone<br>
+<b>E-mail:</b> $email
+<b>Mensagem:</b> $mensagem
 ";
 // Usuário da conta
 $mail->Username = 'rafagdf85@gmail.com'; 

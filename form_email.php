@@ -18,7 +18,7 @@ $URL_BASE = "http://$_SERVER[HTTP_HOST]";
 
 <!-- Aqui abro a tag form e defino a action e o metodo a ser enviado Action = Página destino Method = Post (envia o código de maneira "não visível na url" -->
 
-<form action="enviaContato.php" method="post"><!-- input do formulario -->
+<form action="email.php" method="post"><!-- input do formulario -->
 <div class="row">
 <div class="col-sm-12"><input id="empresa" class="form-control" name="empresa" required="" type="text" placeholder="Empresa" /></div>
 </div>
