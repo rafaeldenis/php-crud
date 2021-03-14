@@ -95,7 +95,7 @@ echo <<<EOT
 		<nav class="navtop">
 	
     	<div>
-    		<h1>Sistema de Gereciamento de Clientes $URL_BASE </h1>		
+    		<h1>Sistema de Gereciamento de Clientes  </h1>		
             <a href="$URL_BASE/index.php"><i class="fas fa-home"></i>Página Principal</a>
             <a href="#"><i class="fas fa-smile"></i> $usuarioLogado </a>
             <a href="$URL_BASE/deslogar.php"><i class="fas fa-power-off"></i> Sair </a>
@@ -109,13 +109,16 @@ echo <<<EOT
     <ul class="nav nav-tabs" id="myTab" role="tablist">
      
         <li class="nav-item">
-            <a class="nav-link" id="profile-tab"  href="$URL_BASE/view/clientes/read.php"  aria-selected="false"><i class="fas fa-address-book"></i> Clientes</a>
+            <a class="nav-link" id="profile-tab"  href="$URL_BASE/view/clientes/read.php"  aria-selected="false"><i class="fas fa-users"></i> Clientes</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" id="contact-tab" data-toggle="tab" href="$URL_BASE/view/funcionarios/funcionarios.php" role="tab" aria-controls="contact" aria-selected="false"><i class="fas fa-address-book"></i> Funcionários</a>
         </li>
 		<li class="nav-item">
 			<a class="nav-link" id="myAnchor" href="$URL_BASE/senhas.php" onclick=adicionarItem(); data-toggle="tab"  role="tab" aria-controls="contact" aria-selected="false"><i class="fas fa-key"></i> Senhas</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" id="myAnchor" href="$URL_BASE/listaUsuarios.php" onclick=adicionarItem(); data-toggle="tab"  role="tab" aria-controls="contact" aria-selected="false"><i class="fas fa-user-secret"></i>Usuários</a>
 		</li>
     </ul>
    

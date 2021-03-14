@@ -37,7 +37,7 @@ if (!empty($_POST)) {
 <?=template_header('Create')?>
 
 <div class="content update">
-	<h2>Criar contato ->  <a href="read.php"><i class="fas fa-address-book"></i>Voltar</a> </h2>
+	<h2>Criar contato <a class="" href="read.php"><i class="fas fa-address-book"></i>Voltar</a> </h2>
     <form action="create.php" method="post">
         <div class="form-group">
             <label for="id">ID</label>

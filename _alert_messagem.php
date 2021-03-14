@@ -6,7 +6,9 @@ if(isset($_SESSION['msgSucesso'])){
         '.$_SESSION['msgSucesso'].'
       
    </div>';
+
    unset($_SESSION['msgSucesso']);
+  
 }
 
 
@@ -27,6 +29,8 @@ if(isset($_SESSION['msgErro'])){
      </div>';
      
   }
+
+ 
 
 
 ?>
