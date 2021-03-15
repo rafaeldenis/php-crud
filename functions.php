@@ -95,10 +95,11 @@ echo <<<EOT
 		<nav class="navtop">
 	
     	<div>
-    		<h1>Sistema de Gereciamento de Clientes  </h1>		
+    		<h1> Gerenciamento Clientes  </h1>		
             <a href="$URL_BASE/index.php"><i class="fas fa-home"></i>Página Principal</a>
             <a href="#"><i class="fas fa-smile"></i> $usuarioLogado </a>
             <a href="$URL_BASE/deslogar.php"><i class="fas fa-power-off"></i> Sair </a>
+            <a href="$URL_BASE/form_email.php"><i class="fas fa-headphones"></i> Fale Conosco </a>
 
     	
     		
@@ -120,6 +121,11 @@ echo <<<EOT
 		<li class="nav-item">
 			<a class="nav-link" id="myAnchor" href="$URL_BASE/listaUsuarios.php" onclick=adicionarItem(); data-toggle="tab"  role="tab" aria-controls="contact" aria-selected="false"><i class="fas fa-user-secret"></i>Usuários</a>
 		</li>
+
+		<li class="nav-item">
+			<a class="nav-link" id="myAnchor" href="$URL_BASE/form_email.php" onclick=adicionarItem(); data-toggle="tab"  role="tab" aria-controls="contact" aria-selected="false"><i class="fas fa-headphones"></i> Fale Conosco</a>
+		</li>
+		
     </ul>
    
 </div>
