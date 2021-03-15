@@ -1,5 +1,5 @@
 <?php
-//session_start();
+
 if(isset($_SESSION['msgSucesso'])){
    echo' 
    <div class="alert alert-success alert-dismissible fade show" role="alert">
