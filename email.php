@@ -44,7 +44,7 @@ $mail->Username = 'rafagdf85@gmail.com';
 $mail->Password = '101947davi';
  
 // Tipo de encriptação que será usado na conexão SMTP
-$mail->SMTPSecure = 'ssl';
+$mail->SMTPSecure = 'ssl'; 
  
 // Porta do servidor SMTP
 $mail->Port = 465;
