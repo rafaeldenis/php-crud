@@ -5,6 +5,9 @@ $msg = '';
 // Check if the contact id exists, for example update.php?id=1 will get the contact with the id of 1
 if (isset($_GET['id'])) {
     if (!empty($_POST)) {
+
+        //print_r($_GET);
+       
         // This part is similar to the create.php, but instead we update a record and not insert
         $id = isset($_POST['id']) ? $_POST['id'] : NULL;
         $nome = isset($_POST['nome']) ? $_POST['nome'] : '';

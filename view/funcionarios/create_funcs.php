@@ -3,6 +3,7 @@
 include '../../functions.php';
 include '../../verificaLogin.php';
 $pdo = pdo_connect_mysql();
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $msg = '';
 // Check if POST data is not empty
 if (!empty($_POST)) {
@@ -17,19 +18,18 @@ if (!empty($_POST)) {
     $cpf_cnpj = isset($_POST['cpf_cnpj']) ? $_POST['cpf_cnpj'] : '';
     $email = isset($_POST['email']) ? $_POST['email'] : '';
  
-    $stmt = $pdo->prepare('INSERT INTO funcionarios VALUES (?,?,?,?,?)');
-    $gravou = $stmt->execute([$id, $nome, $email, $salario, $cpf_cnpj]);
-    if($gravou):
+    $stmt = $pdo->prepare('INSERT INTO funcionarios VALUES (?,?,?,?,?)');    
+    try {
+        $gravou = $stmt->execute([$id, $nome, $email, $salario, $cpf_cnpj]);
         $msg = 'O Funcionário '.$nome.' '.$id.' foi gravado com Sucesso!';
-        session_start();
-    
+        session_start();   
         $_SESSION['msgSucesso'] = $msg;
-    else:
-        $msg = 'O FUNCIONÁRIO '.$nome.' '.$id.' não foi gravado , pois ocorrreu um erro inesperado';
-        session_start();
-    
+    } catch (PDOException $e) {
+        $error =  $e->getMessage();
+        $msg = 'O FUNCIONÁRIO '.$nome.' '.$id.' não foi gravado , pois ocorrreu um erro inesperado '.$error.'';
+        session_start();    
         $_SESSION['msgErro'] = $msg;    
-    endif;  
+    }   
     header('Location: funcionarios.php');   
 }
 ?>

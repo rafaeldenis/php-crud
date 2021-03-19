@@ -106,7 +106,7 @@ jQuery(function($) {
       $("#myModal").modal({
         show: true
         });
-    alert("retornaaa dados Json  testando um servioce php");
+    //alert("retornaaa dados Json  testando um servioce php");
    
     var itens = "", url = "dadosJson.php";
 
@@ -136,13 +136,7 @@ jQuery(function($) {
 				    itens += "<td>" + retorno[i].apelido + "</td>";
 				    itens += "<td>" + retorno[i].apelido + "</td>";
                  
-				    itens += "</tr>";
-                    itens += "<tr>";
-				    itens += "<td>" + retorno[i].id + "</td>";
-				    itens += "<td>" + retorno[i].nome + "</td>";
-				    itens += "<td>" + retorno[i].apelido + "</td>";
-				    itens += "<td>" + retorno[i].apelido + "</td>";
-				    itens += "<td>" + retorno[i].apelido + "</td>";
+				   
                  
 				    itens += "</tr>";
 			    }
