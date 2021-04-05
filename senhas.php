@@ -50,7 +50,7 @@ $num_senhas = $pdo->query('SELECT COUNT(*) FROM minhas_senhas')->fetchColumn();
             <tr>
                 <td><?=$senha['id']?></td>
                 <td><?=$senha['nome']?></td>
-                <td><?=md5($senha['senha'])?></td>
+                <td title="<?=$senha['senha']?>"><?=md5($senha['senha'])?></td>
               
                 <td class="actions">
                     <a href="update.php?id=<?=$senha['id']?>" class="edit"><i class="fas fa-pen fa-xs"></i></a>
